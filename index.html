@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:black;
+        }
+        button{
+            margin-top:5%;
+            width: 100%;
+            height: 8em;
+            border-radius: 1em;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 1.8em;
+            background-color: #ADEFD1FF;
+        }
+        div{
+            width: 60%;
+            padding: 2em;
+            padding-bottom: 2.5em;
+            margin-left:18%;
+
+            border-radius: 1.6em;
+            border: 2px solid;
+        }
+        
+    </style>
+    <script>
+        function gotoLoaction(ref){
+            if(ref=="IM"){
+                window.open("https://becbapatla.github.io/InternalMarks/")
+            }
+            else if(ref=="SM"){
+                window.open("https://becbapatla.github.io/StudentMarks/")
+            }
+            else if(ref=="SGPA"){
+                window.open("https://becbapatla.github.io/SGPACalculator/")
+            }
+            else{
+                window.open("https://www.webprosindia.com/bapatlaec/Default.aspx")
+            }
+        }
+        function ChangeColor(){
+            var tm=document.getElementById("timer")
+            r=String(Math.round(Math.random()*100))
+            g=String(Math.round(Math.random()*100))
+            b=String(Math.round(Math.random()*100))
+            tm.style.color="#"+r+g+b;
+        }
+        function startTimer()
+        {
+            ChangeColor()
+            var currentTime=new Date()
+            var currentOffset = currentTime.getTimezoneOffset();
+            var ISTOffset = 330;   // IST offset UTC +5:30 
+            var ISTTime = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
+            var hoursIST = ISTTime.getHours()
+            var minutesIST = ISTTime.getMinutes()
+            var secondsIST = ISTTime.getSeconds()
+            var ele=document.getElementById("timer")
+            ele.innerHTML=hoursIST+" : "+minutesIST+" : "+secondsIST
+        }
+        function callTimer()
+        {
+            setInterval(startTimer,1000)
+        }
+    </script>
+    <style>
+        #timer{
+            font-size: 90px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin-left:6.3em;
+        }
+    </style>
+</head>
+<body onload="callTimer()">
+        <h1 id="timer"></h1>
+    <div>
+        <button onclick="gotoLoaction('IM')">INTERNAL MARKS CALCULATOR</button><br>
+        <button onclick="gotoLoaction('SM')">STUDENT MARKS</button><br>
+        <button onclick="gotoLoaction('SGPA')">SGPA CALCULATOR</button><br>
+        <button onclick="gotoLoaction('AT')">ATTENDENCE</button><br>
+    </div>
+</body>
+</html>
